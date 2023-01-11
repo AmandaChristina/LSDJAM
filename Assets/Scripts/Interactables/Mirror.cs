@@ -8,10 +8,14 @@ public class Mirror : MonoBehaviour
     GameObject cenario1;
     [SerializeField]
     GameObject cenario2;
+    [SerializeField]
+    Material brokenMaterial;
+
+    Interactable interactable;
 
     void Start()
     {
-
+        interactable = gameObject.GetComponent<Interactable>();
     }
 
 
@@ -19,6 +23,10 @@ public class Mirror : MonoBehaviour
     {
         cenario1.SetActive(false);
         cenario2.SetActive(true);
-        print("Toquei no espelho(" + (+1)+ ")");
+
+        gameObject.GetComponent<MeshRenderer>().material = brokenMaterial;
+        print("troquei de material");
+        //interactable.InteractableEvent -= ScenarySwap;
+
     }
 }

@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PaperFlowers.unity
     guid: bdddc2f42aededc41921a104fb9e4694
+  - enabled: 1
+    path: Assets/Scenes/PlayerScene.unity
+    guid: 889d1fa23a9b70f4985bc7d63e22b6ad
   m_configObjects: {}

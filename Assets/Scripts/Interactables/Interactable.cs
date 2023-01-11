@@ -1,13 +1,18 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Interagible : MonoBehaviour
+public class Interactable : MonoBehaviour
 {
+    public UnityEvent InteractableEvent;
+
     [SerializeField]
     Material selected;
-
     Material normal;
+
+    [SerializeField]
+    bool oneTime;
 
     void Start()
     {
@@ -29,5 +34,10 @@ public class Interagible : MonoBehaviour
     public void OnDeselected()
     {
         gameObject.GetComponent<MeshRenderer>().material = normal;
+    }
+
+    public void RemoveScript()
+    {
+        Destroy(GetComponent<Interactable>());
     }
 }

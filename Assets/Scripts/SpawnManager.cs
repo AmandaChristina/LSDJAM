@@ -7,18 +7,22 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField]
     GameObject player;
+    GameObject spawnPlayer;
     [SerializeField]
     Canvas canvas;
 
-    // Start is called before the first frame update
-    void Start()
+
+    
+    void Awake()
     {
-        
+        spawnPlayer = GameObject.Find("SpawnPlayer");
+        Instantiate(canvas);
+        Instantiate(player, spawnPlayer.transform.position, spawnPlayer.transform.rotation);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
+
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SelectionObject : MonoBehaviour
 {
     [SerializeField]
-    Interagible interagible;
+    Interactable interactable;
     [SerializeField]
     float range = 1000f;
 
@@ -27,18 +27,17 @@ public class SelectionObject : MonoBehaviour
             Debug.DrawLine(transform.position, hit.point, Color.blue);
             //print(hit.transform.name);
             #endregion
-            interagible = hit.transform.gameObject.GetComponent<Interagible>();
+            interactable = hit.transform.gameObject.GetComponent<Interactable>();
 
-            if (interagible != null)
+            if (interactable != null)
             {
-                
-                interagible.OnSelected();
+
+                interactable.OnSelected();
 
                 //é aqui que preciso fazer a função que puxa qualquer uma que o objeto tiver 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    hit.transform.gameObject.GetComponent<GoToScene>().GoToTheScene() ;
-                    hit.transform.gameObject.GetComponent<Mirror>().ScenarySwap();
+                    interactable.InteractableEvent.Invoke();
                 }
             }
 
