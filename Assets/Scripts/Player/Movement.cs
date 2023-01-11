@@ -51,5 +51,10 @@ public class Movement : MonoBehaviour
         }
     }
 
+    void Swimming()
+    {
+
+    }
+
    
 }

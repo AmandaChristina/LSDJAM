@@ -1261,6 +1261,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 936215515044111265, guid: 7c1f89bb9337ea54b9676222841366d8, type: 3}
+      propertyPath: TriggerEnter.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 936215515044111265, guid: 7c1f89bb9337ea54b9676222841366d8, type: 3}
+      propertyPath: TriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 936215515044111265, guid: 7c1f89bb9337ea54b9676222841366d8, type: 3}
+      propertyPath: TriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 802043356}
+    - target: {fileID: 936215515044111265, guid: 7c1f89bb9337ea54b9676222841366d8, type: 3}
+      propertyPath: TriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 936215515044111265, guid: 7c1f89bb9337ea54b9676222841366d8, type: 3}
+      propertyPath: TriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToTheScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 936215515044111265, guid: 7c1f89bb9337ea54b9676222841366d8, type: 3}
+      propertyPath: TriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GoToScene, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 936215515044111265, guid: 7c1f89bb9337ea54b9676222841366d8, type: 3}
+      propertyPath: TriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1678169257973732759, guid: 7c1f89bb9337ea54b9676222841366d8, type: 3}
       propertyPath: m_Name
       value: TriggerResetScene
@@ -1328,6 +1356,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1678169257973732759, guid: 7c1f89bb9337ea54b9676222841366d8, type: 3}
   m_PrefabInstance: {fileID: 802043354}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &802043356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802043355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0143563e4bf77df4790a9ee2795fff7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goToNameScene: GoingUnder
 --- !u!1001 &806480384
 PrefabInstance:
   m_ObjectHideFlags: 0
