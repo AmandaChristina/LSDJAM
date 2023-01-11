@@ -23,6 +23,15 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        Walking();
+        Falling();
+
+        
+
+    }
+
+    void Walking()
+    {
         hMove = Input.GetAxis("Horizontal");
         zMove = Input.GetAxis("Vertical");
 
@@ -31,13 +40,15 @@ public class Movement : MonoBehaviour
 
 
         controller.Move(move * Time.deltaTime * speed);
+    }
 
+    void Falling()
+    {
         Vector3 fall = new Vector3(0, -1, 0);
         if (!controller.isGrounded)
         {
             controller.Move(fall * Time.deltaTime * gravity);
         }
-
     }
 
    
