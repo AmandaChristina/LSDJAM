@@ -13,8 +13,8 @@ public class Movement : MonoBehaviour
     CharacterController controller;
     Vector3 move;
 
-    [SerializeField]
-    bool isMoving, isSwimming, isStoping;
+    bool isMoving, isStoping;
+    public static bool isSwimming;
 
     //Vars of Move
     float hMove;
