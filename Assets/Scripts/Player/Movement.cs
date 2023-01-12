@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour
     //Vars of Move
     float hMove;
     float zMove;
+    float hRotate;
     [SerializeField]
     float speed = 5f;
     [SerializeField]
@@ -97,6 +98,7 @@ public class Movement : MonoBehaviour
     {
         hMove = Input.GetAxis("Horizontal");
         zMove = Input.GetAxis("Vertical");
+        hRotate = Input.GetAxis("Mouse X");
     }
 
     void Walking()
@@ -104,6 +106,7 @@ public class Movement : MonoBehaviour
 
         GettingAxis();
 
+        gameObject.transform.Rotate(Vector3.up * hRotate * MouseOptions.mouseSensibility);
 
         move = new Vector3(hMove, 0, zMove).normalized;
         move = transform.TransformDirection(move);
@@ -125,8 +128,7 @@ public class Movement : MonoBehaviour
     void Swimming()
     {
         Walking();
-        transform.Rotate(Vector3.right * -Input.GetAxis("Mouse Y") * Time.deltaTime * 300f);
-        print("estou nadando");
+        transform.Rotate(Vector3.right * -Input.GetAxis("Mouse Y") * Time.deltaTime * 100f);
 
     }
 
@@ -134,7 +136,6 @@ public class Movement : MonoBehaviour
     {
         transform.rotation = Quaternion.identity; //deixa perfeitamente zerado
         transform.rotation = Quaternion.Euler(Vector3.up * 90f);
-        print("Levantando");
         yield return new WaitForSeconds(0.1f);
         isMoving = true;
         SwitchStates(States.MOVE);

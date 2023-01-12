@@ -4,31 +4,39 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
-    GameObject pCamera;
-    Vector3 pRotation;
+    [SerializeField]
+    Transform playerTransform;
+    Vector3 newRotation;
 
-    float hRotate;
-    float yRotate;
-    float xCamera;
+    float xRotate;
+    float yPlayer;
 
     void Start()
     {
-        pCamera = GameObject.Find("Main Camera");
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
     }
 
     void Update()
     {
-        xCamera = pCamera.transform.rotation.x;
 
-        hRotate = Input.GetAxis("Mouse X");
-        yRotate = Input.GetAxis("Mouse Y");
+        CameraPosition();
 
-        //xCamera = Mathf.Clamp(xCamera, -0.57f, 0.7f);
-        //xCamera = Mathf.Clamp(xCamera, -90f, 50f);
+        xRotate -= Input.GetAxis("Mouse Y");
+        yPlayer = playerTransform.eulerAngles.y;
+        print(yPlayer);
 
-        gameObject.transform.Rotate( Vector3.up * hRotate * MouseOptions.mouseSensibility);
-        pCamera.transform.Rotate( Vector3.right * -yRotate * MouseOptions.mouseSensibility);
+        newRotation = new Vector3(xRotate * MouseOptions.mouseSensibility, yPlayer, 0f) ;
 
+
+        transform.rotation = Quaternion.Euler(newRotation);
+
+    }
+    void CameraPosition()
+    {
+        Vector3 newPosition;
+        newPosition = playerTransform.position;
+        newPosition += Vector3.up * 2f;
+        transform.position = newPosition;
     }
 }
