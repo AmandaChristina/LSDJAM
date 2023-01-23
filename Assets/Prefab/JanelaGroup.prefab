@@ -328,7 +328,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bbb867d27533434e8a4a6d825a2142b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selected: {fileID: 0}
   InteractableEvent:
     m_PersistentCalls:
       m_Calls:
@@ -356,6 +355,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  selected: {fileID: 2100000, guid: d6515b09af91f7a47971908cbaf20838, type: 2}
+  oneTime: 0
 --- !u!114 &805887990949241434
 MonoBehaviour:
   m_ObjectHideFlags: 0

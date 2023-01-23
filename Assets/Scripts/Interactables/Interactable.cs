@@ -11,9 +11,6 @@ public class Interactable : MonoBehaviour
     Material selected;
     Material normal;
 
-    [SerializeField]
-    bool oneTime;
-
     void Start()
     {
 

@@ -26,7 +26,7 @@ public class PlayerCamera : MonoBehaviour
         yPlayer = playerTransform.eulerAngles.y;
         print(yPlayer);
 
-        newRotation = new Vector3(xRotate * MouseOptions.mouseSensibility, yPlayer, 0f) ;
+        newRotation = new Vector3(xRotate * MouseOptions.mouseSensibility, yPlayer, 0f);
 
 
         transform.rotation = Quaternion.Euler(newRotation);

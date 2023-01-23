@@ -17,7 +17,7 @@ public class Animations : MonoBehaviour
     {
         _isSwimming = Movement.isSwimming;
 
-        if (_isSwimming) pAnimator.SetBool("swimming", true);
-        else pAnimator.SetBool("swimming", false);
+        //if (_isSwimming) pAnimator.SetBool("swimming", true);
+        //else pAnimator.SetBool("swimming", false);
     }
 }
