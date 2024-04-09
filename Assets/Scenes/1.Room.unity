@@ -9090,7 +9090,7 @@ MonoBehaviour:
   sharedProfile: {fileID: 11400000, guid: d014f36f0604b9d4db998a485a507168, type: 2}
   isGlobal: 1
   blendDistance: 0
-  weight: 0.749
+  weight: 1
   priority: 0
 --- !u!4 &1155763397
 Transform:
@@ -14809,7 +14809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0143563e4bf77df4790a9ee2795fff7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goToNameScene: GoingUnder
+  goToNameScene: 2.GoingUnder
 --- !u!114 &3365558248246425172
 MonoBehaviour:
   m_ObjectHideFlags: 0

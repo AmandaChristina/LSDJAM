@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Room.unity
+    path: Assets/Scenes/1.Room.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/GoingUnder.unity
+    path: Assets/Scenes/2.GoingUnder.unity
     guid: bdb7ed87d79b50640be065ae421ee145
   - enabled: 1
-    path: Assets/Scenes/PaperFlowers.unity
+    path: Assets/Scenes/3.PaperFlowers.unity
     guid: bdddc2f42aededc41921a104fb9e4694
   - enabled: 1
     path: Assets/Scenes/PlayerScene.unity

@@ -24,7 +24,7 @@ public class PlayerCamera : MonoBehaviour
 
         xRotate -= Input.GetAxis("Mouse Y");
         yPlayer = playerTransform.eulerAngles.y;
-        print(yPlayer);
+        //print(yPlayer);
 
         newRotation = new Vector3(xRotate * MouseOptions.mouseSensibility, yPlayer, 0f);
 
@@ -36,7 +36,7 @@ public class PlayerCamera : MonoBehaviour
     {
         Vector3 newPosition;
         newPosition = playerTransform.position;
-        newPosition += Vector3.up * 2f;
+        newPosition += new Vector3(0, 1.1f,1f);
         transform.position = newPosition;
     }
 }

@@ -56,7 +56,7 @@ public class Movement : MonoBehaviour
                 break;
 
             case States.STOP:
-                print("Estou parado");
+                //print("Estou parado");
                 break;
 
             default:
