@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public CharacterController controller;
     public Animator animator;
 
-    [SerializeField] PlayerCamera playerCamera;
+    PlayerCamera playerCamera;
     float _mouseY, _mouseX, _horizontal, _vertical;
 
     //Objetos
@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
     {
         playerTransform = GetComponent<Transform>();
         controller = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
 
         waterObj = GameObject.Find("Water");
         playerCamera = GameObject.Find("Main Camera").GetComponent<PlayerCamera>();
@@ -172,10 +172,11 @@ public class Player : MonoBehaviour
     public void Falling()
     {
         Vector3 fall = new Vector3(0, -1, 0);
-        if (!controller.isGrounded)
-        {
-            controller.Move(fall * Time.deltaTime * gravity);
-        }
+        controller.Move(fall * Time.deltaTime * gravity);
+        //if (!controller.isGrounded)
+        //{
+        //    controller.Move(fall * Time.deltaTime * gravity);
+        //}
     }
 
     public void Swimming()
@@ -187,6 +188,8 @@ public class Player : MonoBehaviour
     {
         if (_horizontal != 0 || _vertical != 0) _isMoving = true;
         else _isMoving = false;
+        print(_isMoving);
+
         animator.SetBool("moving", _isMoving);
 
         animator.SetBool("swimming", _isSwimming);
