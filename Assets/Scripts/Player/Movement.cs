@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     
-    enum States { MOVE, SWIM, UP,STOP} //Cria as opções
+    enum States { MOVE, SWIM,STOP} //Cria as opções
     [SerializeField]
     States _state; // cria a variável que vai receber a opção atual
 
@@ -22,7 +22,8 @@ public class Movement : MonoBehaviour
     [SerializeField]
     float speed = 5f;
     [SerializeField]
-    float gravity;
+    float gravity, waterHeightOffset = 1.9f;
+
 
     //Vars of Swim
 
@@ -51,10 +52,6 @@ public class Movement : MonoBehaviour
                 Swimming();
                 break;
 
-            case States.UP:
-                StartCoroutine(GetOutWater());
-                break;
-
             case States.STOP:
                 //print("Estou parado");
                 break;
@@ -74,9 +71,8 @@ public class Movement : MonoBehaviour
 
             float waterDistance = yWater - yPlayer;
 
-            if (waterDistance > -controller.height / 2.3f)
+            if (waterDistance > controller.height - waterHeightOffset)
             {
-                isMoving = false;
                 isSwimming = true;
             }
 
@@ -88,8 +84,7 @@ public class Movement : MonoBehaviour
         }
 
         if (isSwimming) SwitchStates(States.SWIM);
-        else if (!isSwimming && !isMoving) SwitchStates(States.UP);
-        else if (isMoving)SwitchStates(States.MOVE);
+        else if (!isSwimming)SwitchStates(States.MOVE);
 
 
     }
@@ -100,7 +95,10 @@ public class Movement : MonoBehaviour
         zMove = Input.GetAxis("Vertical");
         hRotate = Input.GetAxis("Mouse X");
         yRotate = Input.GetAxis("Mouse Y");
+
     }
+
+
 
     void Walking()
     {
@@ -126,37 +124,14 @@ public class Movement : MonoBehaviour
         }
     }
 
-    //void Swimming()
-    //{
-    //    Walking();
-    //    transform.Rotate(Vector3.right * -Input.GetAxis("Mouse Y") * Time.deltaTime * 100f);
-
-    //}
+    
     void Swimming()
     {
         GettingAxis();
-        transform.rotation = Quaternion.Euler(90f, 0f, 0f);
-
-        if (transform.eulerAngles.x == Mathf.Clamp(transform.eulerAngles.x, 70f, 110f)) { 
-
-            Vector3 rotateSwimming = new Vector3(100f * Time.deltaTime * -yRotate, 100f * Time.deltaTime * hMove, 0f);
-            transform.Rotate(rotateSwimming);
-            transform.Translate(0f,0f, speed * Time.deltaTime * zMove);
-            //transform.Rotate(100f * Time.deltaTime * -yRotate, 100f * Time.deltaTime * hMove, 0f) ;
-
-        }
+        
 
     }
 
-    IEnumerator GetOutWater()
-    {
-        // transform.rotation = Quaternion.identity; //deixa perfeitamente zerado
-       // transform.rotation = Quaternion.Euler(Vector3.up * 90f);
-        yield return new WaitForSeconds(0.1f);
-        isMoving = true;
-        SwitchStates(States.MOVE);
-
-    }
 
     void SwitchStates(States state)
     {

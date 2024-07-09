@@ -10,19 +10,20 @@ public class PlayerCamera : MonoBehaviour
 
     float xRotate;
     float yPlayer;
+    float limit = 20f;
 
     void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        CameraPosition();
     }
 
     void Update()
     {
 
-        CameraPosition();
-
         xRotate -= Input.GetAxis("Mouse Y");
+        xRotate = Mathf.Clamp(xRotate, -limit, limit);
         yPlayer = playerTransform.eulerAngles.y;
         //print(yPlayer);
 
@@ -38,5 +39,8 @@ public class PlayerCamera : MonoBehaviour
         newPosition = playerTransform.position;
         newPosition += new Vector3(0, 1.1f,1f);
         transform.position = newPosition;
+        transform.SetParent(playerTransform);
+        transform.rotation = Quaternion.identity;
+
     }
 }

@@ -8,7 +8,7 @@ public class Animations : MonoBehaviour
     bool _isSwimming;
     [SerializeField] CharacterController controller;
 
-    bool walking;
+    bool move;
 
     void Start()
     {
@@ -22,15 +22,16 @@ public class Animations : MonoBehaviour
        float  hMove = Input.GetAxis("Horizontal");
        float zMove = Input.GetAxis("Vertical");
 
-        if (hMove != 0 || zMove != 0) walking = true;
-        else walking = false;
+        if (hMove != 0 || zMove != 0) move = true;
+        else move = false;
 
-        print("H: " + hMove + ", Z: " + zMove + ", Walking: " + walking);
+        //print("H: " + hMove + ", Z: " + zMove + ", Walking: " + walking);
 
-        pAnimator.SetBool("walking", walking);
+        pAnimator.SetBool("moving", move);
+
         _isSwimming = Movement.isSwimming;
 
-        //if (_isSwimming) pAnimator.SetBool("swimming", true);
-        //else pAnimator.SetBool("swimming", false);
+        pAnimator.SetBool("swimming", _isSwimming);
+
     }
 }

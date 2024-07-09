@@ -432,17 +432,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6531845267693453825, guid: a61adc72a202ac749a82d4d6e14bb332, type: 3}
+      propertyPath: waterHeight
+      value: 1.9
+      objectReference: {fileID: 0}
     - target: {fileID: 6531845267693453827, guid: a61adc72a202ac749a82d4d6e14bb332, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6531845267693453827, guid: a61adc72a202ac749a82d4d6e14bb332, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 86.28498
+      value: 96.25
       objectReference: {fileID: 0}
     - target: {fileID: 6531845267693453827, guid: a61adc72a202ac749a82d4d6e14bb332, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.63
+      value: 16.65
       objectReference: {fileID: 0}
     - target: {fileID: 6531845267693453827, guid: a61adc72a202ac749a82d4d6e14bb332, type: 3}
       propertyPath: m_LocalPosition.z
