@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7555448080739221424}
   - component: {fileID: 7555448080739221425}
   - component: {fileID: 7555448080739221422}
-  - component: {fileID: 2880187710107165520}
   - component: {fileID: 5923742467656935429}
+  - component: {fileID: 215500270262823675}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -85,19 +85,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7555448080739221423}
   m_Enabled: 1
---- !u!114 &2880187710107165520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7555448080739221423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f260e8a62e2eea46a313dd06a2bfe12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
 --- !u!114 &5923742467656935429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,3 +145,22 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &215500270262823675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7555448080739221423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f260e8a62e2eea46a313dd06a2bfe12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerTransform: {fileID: 0}
+  controller: {fileID: 0}
+  playerMovement: {fileID: 0}
+  playerCamera: {fileID: 0}
+  waterHeightOffset: 1.9
+  _state: 0
+  newRotation: {x: 0, y: 0, z: 0}

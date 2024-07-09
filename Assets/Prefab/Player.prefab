@@ -29,11 +29,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6531845267693453827}
   - component: {fileID: 6531845267693453824}
-  - component: {fileID: 6531845267693453825}
+  - component: {fileID: 1183987723477295463}
   - component: {fileID: 6531845267693453839}
   - component: {fileID: 6531845267693453836}
   - component: {fileID: 1555535266018541808}
-  - component: {fileID: 474181778803548789}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -74,7 +73,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: -0.03, z: 0}
---- !u!114 &6531845267693453825
+--- !u!114 &1183987723477295463
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,12 +82,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 6531845267693453831}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 290b691d64d96e249ae0817cfaee6979, type: 3}
+  m_Script: {fileID: 11500000, guid: bfbdccd5cb7ade94e92d2c79c69dad57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  animator: {fileID: 0}
+  playerCamera: {fileID: 0}
+  speed: 5
+  gravity: 9
+  waterHeightOffset: 1.9
   _state: 0
-  speed: 10
-  gravity: 10
 --- !u!114 &6531845267693453839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,20 +137,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &474181778803548789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6531845267693453831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c67b4321eb853649a3e6a08ff2f2f31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pAnimator: {fileID: 6252564093815193686}
-  controller: {fileID: 0}
 --- !u!1001 &5425096250406643839
 PrefabInstance:
   m_ObjectHideFlags: 0

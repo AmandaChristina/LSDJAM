@@ -4,43 +4,40 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
-    [SerializeField]
-    Transform playerTransform;
-    Vector3 newRotation;
-
-    float xRotate;
-    float yPlayer;
-    float limit = 20f;
+    //Camera
+    [SerializeField] float limitVerticalView = 20f;
+    Player player;
 
     void Start()
     {
-
-        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        CameraPosition();
+        InitialConfigCamera();
+        player = GetComponentInParent<Player>();
+        
     }
 
+    
     void Update()
     {
-
-        xRotate -= Input.GetAxis("Mouse Y");
-        xRotate = Mathf.Clamp(xRotate, -limit, limit);
-        yPlayer = playerTransform.eulerAngles.y;
-        //print(yPlayer);
-
-        newRotation = new Vector3(xRotate * MouseOptions.mouseSensibility, yPlayer, 0f);
-
-
-        transform.rotation = Quaternion.Euler(newRotation);
-
+       CameraMovement();
     }
-    void CameraPosition()
+
+
+    void InitialConfigCamera()
     {
         Vector3 newPosition;
-        newPosition = playerTransform.position;
-        newPosition += new Vector3(0, 1.1f,1f);
+        newPosition = Player.playerTransform.position;
+        newPosition += new Vector3(0, 1.1f, 1f);
         transform.position = newPosition;
-        transform.SetParent(playerTransform);
+        transform.SetParent(Player.playerTransform);
         transform.rotation = Quaternion.identity;
+    }
+
+    public void CameraMovement()
+    {
+        
+        float xRotate = Mathf.Clamp(player.GetMouseY(), -limitVerticalView, limitVerticalView);
+        Vector3 newRotation = new Vector3(xRotate * MouseOptions.mouseSensibility/2f, player.transform.eulerAngles.y, 0f);
+        transform.rotation = Quaternion.Euler(newRotation);
 
     }
 }
