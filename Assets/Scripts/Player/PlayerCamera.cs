@@ -18,7 +18,7 @@ public class PlayerCamera : MonoBehaviour
     
     void Update()
     {
-       CameraMovement();
+       CameraMovement(player._isGrounded);
     }
 
 
@@ -32,12 +32,12 @@ public class PlayerCamera : MonoBehaviour
         transform.rotation = Quaternion.identity;
     }
 
-    public void CameraMovement()
+    public void CameraMovement(bool grounded)
     {
-        
-        float xRotate = Mathf.Clamp(player.GetMouseY(), -limitVerticalView, limitVerticalView);
-        Vector3 newRotation = new Vector3(xRotate * MouseOptions.mouseSensibility/2f, player.transform.eulerAngles.y, 0f);
-        transform.rotation = Quaternion.Euler(newRotation);
-
+        if (grounded) { 
+            float xRotate = Mathf.Clamp(player.GetMouseY(), -limitVerticalView, limitVerticalView);
+            Vector3 newRotation = new Vector3(xRotate * MouseOptions.mouseSensibility/2f, player.transform.eulerAngles.y, 0f);
+            transform.rotation = Quaternion.Euler(newRotation);
+        }
     }
 }

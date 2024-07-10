@@ -433,17 +433,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6531845267693453824, guid: a61adc72a202ac749a82d4d6e14bb332, type: 3}
+      propertyPath: m_SlopeLimit
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 6531845267693453827, guid: a61adc72a202ac749a82d4d6e14bb332, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6531845267693453827, guid: a61adc72a202ac749a82d4d6e14bb332, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 96.25
+      value: 68.24
       objectReference: {fileID: 0}
     - target: {fileID: 6531845267693453827, guid: a61adc72a202ac749a82d4d6e14bb332, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.19
+      value: 1.44
       objectReference: {fileID: 0}
     - target: {fileID: 6531845267693453827, guid: a61adc72a202ac749a82d4d6e14bb332, type: 3}
       propertyPath: m_LocalPosition.z

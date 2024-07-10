@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
 
     //Animações
     [SerializeField] bool _isSwimming, _isMoving;
+    public bool _isGrounded = true;
 
     //Máquina de Estado
     enum States { MOVE, SWIM, STOP } //Cria as opções
@@ -72,14 +73,16 @@ public class Player : MonoBehaviour
         //        break;
         //}
 
-       
+
 
         #endregion
 
-       // 
-      if(!_isSwimming)PlayerOnGround();
+        // 
+        if (!_isSwimming) PlayerOnGround();
+        else Swimming();
       PlayerInWater();
       PlayerAnimations();
+      _isGrounded = controller.isGrounded;
 
 
     }
@@ -150,7 +153,6 @@ public class Player : MonoBehaviour
 
     public void Walking()
     {
-        
 
         //Andar
         move = new Vector3(_horizontal, 0, _vertical).normalized;
@@ -160,9 +162,6 @@ public class Player : MonoBehaviour
 
         //Rotacionar
         gameObject.transform.Rotate(Vector3.up * _mouseX * MouseOptions.mouseSensibility);
-
-
-  
 
     }
     public void Falling()
@@ -177,7 +176,22 @@ public class Player : MonoBehaviour
 
     public void Swimming()
     {
-        
+        //Andar
+        move = new Vector3(_horizontal, 0, _vertical).normalized;
+        move = transform.TransformDirection(move);
+
+        controller.Move(move * Time.deltaTime * speed);
+
+        //Rotacionar Vertical
+        gameObject.transform.Rotate(Vector3.up * _mouseX * MouseOptions.mouseSensibility);
+
+
+        //Rotacionar Horizontal
+        float limitVerticalView = 15f;
+        float xRotate = Mathf.Clamp(_mouseY, -limitVerticalView, limitVerticalView);
+        Vector3 newRotation = new Vector3(xRotate * MouseOptions.mouseSensibility / 2f, transform.eulerAngles.y, 0f);
+        transform.rotation = Quaternion.Euler(newRotation);
+
     }
 
    void PlayerAnimations()
