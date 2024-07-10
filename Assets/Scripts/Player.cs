@@ -6,25 +6,25 @@ public class Player : MonoBehaviour
 {
     #region Variáveis
     //Base
-    public static Transform playerTransform;
-    public CharacterController controller;
-    public Animator animator;
+    [HideInInspector] public static Transform playerTransform;
+    [HideInInspector] public CharacterController controller;
+    [HideInInspector] public Animator animator;
 
     PlayerCamera playerCamera;
     float _mouseY, _mouseX, _horizontal, _vertical;
 
     //Objetos
-    GameObject waterObj;
+    [HideInInspector] public GameObject waterObj;
 
     //Movimentação
     Vector3 move;
     [SerializeField] float speed = 5f, gravity = 9f;
 
     //Nadar
-    [SerializeField]float waterHeightOffset = 1.9f;
+    [SerializeField] float waterHeightOffset = 1.9f;
 
     //Animações
-    bool _isSwimming, _isMoving;
+    [SerializeField] bool _isSwimming, _isMoving;
 
     //Máquina de Estado
     enum States { MOVE, SWIM, STOP } //Cria as opções
@@ -76,9 +76,10 @@ public class Player : MonoBehaviour
 
         #endregion
 
-        PlayerInWater();
-        PlayerOnGround();
-        PlayerAnimations();
+       // 
+      if(!_isSwimming)PlayerOnGround();
+      PlayerInWater();
+      PlayerAnimations();
 
 
     }
@@ -130,14 +131,9 @@ public class Player : MonoBehaviour
             float yWater = waterObj.transform.position.y;
 
             float waterDistance = yWater - yPlayer;
-
-            while (waterDistance > controller.height - waterHeightOffset)
-            {
-                _isSwimming = true;
-                Swimming();
-                
-            }
-            _isSwimming = false;
+            print("Limite: " + (controller.height - waterHeightOffset) + "; Distancia água:" + waterDistance);
+           if (waterDistance > controller.height - waterHeightOffset) _isSwimming = true;
+           else _isSwimming = false;
 
         }
     }
@@ -188,7 +184,6 @@ public class Player : MonoBehaviour
     {
         if (_horizontal != 0 || _vertical != 0) _isMoving = true;
         else _isMoving = false;
-        print(_isMoving);
 
         animator.SetBool("moving", _isMoving);
 
